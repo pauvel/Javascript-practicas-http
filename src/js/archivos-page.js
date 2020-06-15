@@ -1,3 +1,5 @@
+import {subirImagen} from './http-provider';
+
 const body = document.body;
 let inputFile, imgFoto;
 
@@ -18,7 +20,17 @@ const crearInputFileHtml = () =>{
     imgFoto = document.querySelector('#foto');
 }
 
+const eventos = () =>{
+    inputFile.addEventListener('change', (e)=>{
+        const file = e.target.files[0];
+        // console.log(file);
+        subirImagen(file).then(url => {
+            imgFoto.src = url;
+        });
+    });
+}
 
 export const init = ()=>{
     crearInputFileHtml();
+    eventos();
 }
