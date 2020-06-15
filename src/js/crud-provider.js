@@ -28,8 +28,18 @@ const actualizarUsuario= async( id, user )=>{
     });
     return await resp.json();
 }
+
+const borrarUsuario = async( id )=>{
+    const resp = await fetch(`${urlCRUD}/${id}`,{
+        method: 'DELETE'
+    });
+
+    return (resp.ok) ? 'Borrado' : 'No se pudo eliminar'; // (Si se hace correctamente).
+}
+
 export{
     getUsuario,
     crearUsuario,
-    actualizarUsuario
+    actualizarUsuario,
+    borrarUsuario
 }
