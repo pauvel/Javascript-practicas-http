@@ -1,7 +1,5 @@
-const {obtenerUsuarios} = require("./js/http-provider");
-const {init} = require("./js/usuarios-page");
-// init(); Iniciar pedir chistes
+import * as CRUD from './js/crud-provider';
 
-// obtenerUsuarios().then(console.log);
-
-init();
+CRUD.getUsuario(1).then( (data) =>{
+    console.log(data);
+});
